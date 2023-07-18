@@ -56,7 +56,7 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
   }
 };
 //MAKE ASYNC?
-export const fetchAllProjects = (
+export const fetchAllProjects = async (
   category?: string | null,
   endcursor?: string | null
 ) => {

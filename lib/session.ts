@@ -25,6 +25,7 @@ export const authOptions: NextAuthOptions = {
         },
         secret
       );
+
       return encodedToken;
     },
     decode: async ({ secret, token }) => {
@@ -73,7 +74,7 @@ export const authOptions: NextAuthOptions = {
 
         return true;
       } catch (error: any) {
-        console.error("Error signing in: ", error.message);
+        console.log("Error checking if user exists: ", error.message);
         return false;
       }
     },
