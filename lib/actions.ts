@@ -11,6 +11,7 @@ import {
   projectsQuery,
 } from "@/graphql";
 import { ProjectForm } from "@/common.types";
+import { categoryFilters } from "@/constants";
 
 const isProduction = process.env.NODE_ENV === "production";
 const apiUrl = isProduction
@@ -61,6 +62,8 @@ export const fetchAllProjects = (
   endcursor?: string | null
 ) => {
   client.setHeader("x-api-key", apiKey);
+
+  const categories = category == null ? categoryFilters : [category];
 
   return makeGraphQLRequest(projectsQuery, { category, endcursor });
 };
