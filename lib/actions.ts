@@ -65,7 +65,7 @@ export const fetchAllProjects = (
 
   const categories = category == null ? categoryFilters : [category];
 
-  return makeGraphQLRequest(projectsQuery, { category, endcursor });
+  return makeGraphQLRequest(projectsQuery, { categories, endcursor });
 };
 
 export const createNewProject = async (
